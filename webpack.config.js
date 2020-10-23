@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPackage = require('copy-pkg-json-webpack-plugin');
 
 /* -----------------------------------
  *
@@ -45,7 +46,13 @@ module.exports = {
       },
     ],
   },
-  externals: ['path', 'worker_threads', 'pnpapi'],
+  plugins: [
+    new CopyPackage({
+      remove: ['devDependencies'],
+      replace: { scripts: { start: 'node index.js' } },
+    }),
+  ],
+  externals: ['path', 'worker_threads', 'webpack', 'pnp-webpack-plugin'],
   output: {
     libraryTarget: 'umd',
     path: path.resolve(__dirname, './dist'),
