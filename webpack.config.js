@@ -25,7 +25,7 @@ const dependencies = [
  * -------------------------------- */
 
 module.exports = {
-  entry: ['./src/lambda.js'],
+  entry: [/*'gatsby', */ './src/lambda.js'],
   mode: 'development',
   target: 'node',
   context: __dirname,
@@ -44,6 +44,15 @@ module.exports = {
         test: /\.js$/,
         use: ['shebang-loader'],
       },
+      {
+        test: /gatsby-browser-entry.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react'],
+          },
+        },
+      },
     ],
   },
   plugins: [
@@ -52,7 +61,13 @@ module.exports = {
       replace: { scripts: { start: 'node index.js' } },
     }),
   ],
-  externals: ['path', 'worker_threads', 'webpack', 'pnp-webpack-plugin'],
+  externals: [
+    'path',
+    'worker_threads',
+    'graphql',
+    'graphql-compose',
+    'pnp-webpack-plugin',
+  ],
   output: {
     libraryTarget: 'umd',
     path: path.resolve(__dirname, './dist'),

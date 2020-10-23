@@ -1,9 +1,9 @@
 /* eslint-disable import/no-dynamic-require, global-require */
 
-const { link } = require('linkfs');
-const mock = require('mock-require');
-const fs = require('fs');
-const tmpDir = require('os').tmpdir();
+// const { link } = require('linkfs');
+// const mock = require('mock-require');
+// const fs = require('fs');
+// const tmpDir = require('os').tmpdir();
 
 /* -----------------------------------
  *
@@ -16,9 +16,9 @@ function invokeGatsby(context) {
 
   gatsby({
     directory: __dirname,
-  })
-    .then(context.succeed)
-    .catch(context.fail);
+  });
+  // .then(context.succeed)
+  // .catch(context.fail);
 }
 
 /* -----------------------------------
@@ -27,6 +27,7 @@ function invokeGatsby(context) {
  *
  * -------------------------------- */
 
+/*
 function rewriteFs() {
   // redirect paths
   const linkedFs = link(fs, [
@@ -41,6 +42,7 @@ function rewriteFs() {
   // replace fs with linkfs globally
   mock('fs', linkedFs);
 }
+*/
 
 /* -----------------------------------
  *
@@ -48,7 +50,11 @@ function rewriteFs() {
  *
  * -------------------------------- */
 
+/*
 exports.handler = (event, context) => {
   rewriteFs();
   invokeGatsby(context);
 };
+*/
+
+invokeGatsby();
