@@ -1,4 +1,4 @@
-import { S3Event, Context } from 'aws-lambda';
+import { Context } from 'aws-lambda';
 import { link } from 'linkfs';
 import mock from 'mock-require';
 import fs from 'fs';

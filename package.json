@@ -9,6 +9,7 @@
     "build": "webpack"
   },
   "dependencies": {
+    "app-module-path": "^2.2.0",
     "gatsby-alias-imports": "1.0.4",
     "gatsby-plugin-manifest": "2.4.21",
     "gatsby-plugin-offline": "3.2.21",

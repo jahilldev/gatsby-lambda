@@ -1,7 +1,16 @@
 const path = require('path');
 const fs = require('fs');
+const { BannerPlugin } = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const CopyPackage = require('copy-pkg-json-webpack-plugin');
+
+/* -----------------------------------
+ *
+ * Variables
+ *
+ * -------------------------------- */
+
+const efsMountPath = '/mnt/efs/node/node_modules';
 
 /* -----------------------------------
  *
@@ -30,6 +39,10 @@ module.exports = {
     new CopyPackage({
       remove: ['devDependencies'],
       replace: { scripts: { start: 'node index.js' } },
+    }),
+    new BannerPlugin({
+      banner: `require('app-module-path').addPath('${efsMountPath}');`,
+      raw: true,
     }),
   ],
   externals: [nodeExternals()],
