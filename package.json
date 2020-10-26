@@ -21,32 +21,25 @@
     "gatsby-plugin-split-css": "1.0.2",
     "gatsby-source-filesystem": "2.3.23",
     "gatsby-transformer-sharp": "2.5.11",
-    "graphql": "^15.3.0",
-    "graphql-compose": "^7.22.1",
     "linkfs": "2.1.0",
-    "node-sass": "4.14.1",
-    "pnp-webpack-plugin": "1.6.4"
-  },
-  "devDependencies": {
-    "@babel/preset-react": "^7.12.1",
-    "aws-sdk": "2.777.0",
-    "babel-loader": "^8.1.0",
-    "copy-pkg-json-webpack-plugin": "0.0.39",
-    "electron": "10.1.4",
-    "exports-loader": "1.1.1",
-    "gatsby": "2.24.14",
-    "imports-loader": "1.2.0",
     "mock-require": "3.0.3",
+    "node-sass": "4.14.1",
     "preact": "10.4.6",
     "preact-render-to-string": "5.1.10",
-    "prettier": "2.1.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-helmet": "6.1.0",
-    "shebang-loader": "^0.0.1",
+    "react-helmet": "6.1.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.64",
+    "aws-sdk": "2.777.0",
+    "copy-pkg-json-webpack-plugin": "0.0.39",
+    "gatsby": "^2.24.85",
+    "prettier": "2.1.2",
+    "ts-loader": "^8.0.7",
     "typescript": "4.0.3",
-    "webpack": "4.43.0",
+    "webpack": "4.44.2",
     "webpack-cli": "4.1.0",
-    "webpack-plugin-serve": "1.2.0"
+    "webpack-node-externals": "^2.5.2"
   }
 }

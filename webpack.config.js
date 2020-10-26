@@ -1,22 +1,7 @@
 const path = require('path');
+const fs = require('fs');
+const nodeExternals = require('webpack-node-externals');
 const CopyPackage = require('copy-pkg-json-webpack-plugin');
-
-/* -----------------------------------
- *
- * Dependencies
- *
- * -------------------------------- */
-
-const dependencies = [
-  'gatsby',
-  'gatsby-cli',
-  'buble-jsx-only',
-  '@mdx-js/mdx',
-  '@pmmmwh/react-refresh-webpack-plugin',
-  'babel-runtime',
-  'core-js-compat',
-  'joi',
-];
 
 /* -----------------------------------
  *
@@ -25,33 +10,19 @@ const dependencies = [
  * -------------------------------- */
 
 module.exports = {
-  entry: [/*'gatsby', */ './src/lambda.js'],
-  mode: 'development',
+  entry: ['./src/lambda.ts'],
+  mode: 'production',
   target: 'node',
   context: __dirname,
   resolve: {
-    modules: [
-      path.resolve(__dirname, 'node_modules'),
-      ...dependencies.map((item) =>
-        path.resolve(__dirname, 'node_modules', item, 'node_modules')
-      ),
-    ],
+    modules: [path.resolve(__dirname, 'node_modules')],
     extensions: ['*', '.mjs', '.js', '.json', '.gql', '.graphql'],
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: ['shebang-loader'],
-      },
-      {
-        test: /gatsby-browser-entry.js$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react'],
-          },
-        },
+        test: /\.ts$/,
+        use: ['ts-loader'],
       },
     ],
   },
@@ -61,13 +32,7 @@ module.exports = {
       replace: { scripts: { start: 'node index.js' } },
     }),
   ],
-  externals: [
-    'path',
-    'worker_threads',
-    'graphql',
-    'graphql-compose',
-    'pnp-webpack-plugin',
-  ],
+  externals: [nodeExternals()],
   output: {
     libraryTarget: 'umd',
     path: path.resolve(__dirname, './dist'),
