@@ -9,7 +9,7 @@
     "build": "webpack"
   },
   "dependencies": {
-    "app-module-path": "^2.2.0",
+    "app-module-path": "2.2.0",
     "gatsby-alias-imports": "1.0.4",
     "gatsby-plugin-manifest": "2.4.21",
     "gatsby-plugin-offline": "3.2.21",
@@ -31,12 +31,12 @@
     "@types/aws-lambda": "^8.10.64",
     "aws-sdk": "2.777.0",
     "copy-pkg-json-webpack-plugin": "0.0.39",
-    "gatsby": "^2.24.85",
+    "gatsby": "2.24.85",
     "prettier": "2.1.2",
     "ts-loader": "^8.0.7",
     "typescript": "4.0.3",
     "webpack": "4.44.2",
     "webpack-cli": "4.1.0",
-    "webpack-node-externals": "^2.5.2"
+    "webpack-node-externals": "2.5.2"
   }
 }
