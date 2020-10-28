@@ -3,6 +3,7 @@ import { link } from 'linkfs';
 import mock from 'mock-require';
 import fs from 'fs';
 import { tmpdir } from 'os';
+import { runtimeRequire } from '@/utility/runtimeRequire.utility';
 
 /* -----------------------------------
  *
@@ -19,10 +20,13 @@ const tmpDir = tmpdir();
  * -------------------------------- */
 
 function invokeGatsby(context: Context) {
-  const gatsby = require('gatsby/dist/commands/build');
+  const gatsby = runtimeRequire('gatsby/dist/commands/build');
 
   gatsby({
     directory: __dirname,
+    verbose: false,
+    browserslist: ['>0.25%', 'not dead'],
+    sitePackageJson: runtimeRequire('./package.json'),
   })
     .then(context.succeed)
     .catch(context.fail);

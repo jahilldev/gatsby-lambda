@@ -25,7 +25,14 @@ module.exports = {
   context: __dirname,
   resolve: {
     modules: [path.resolve(__dirname, 'node_modules')],
-    extensions: ['*', '.mjs', '.js', '.json', '.gql', '.graphql'],
+    extensions: ['*', '.mjs', '.ts', '.js', '.json', '.gql', '.graphql'],
+    alias: {
+      '@': path.resolve('./src'),
+    },
+  },
+  node: {
+    __dirname: false,
+    __filename: false,
   },
   module: {
     rules: [
