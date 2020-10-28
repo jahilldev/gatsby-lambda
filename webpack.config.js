@@ -48,7 +48,10 @@ module.exports = {
       replace: { scripts: { start: 'node index.js' } },
     }),
     new BannerPlugin({
-      banner: `require('app-module-path').addPath('${efsMountPath}');`,
+      banner: `
+        require('app-module-path').addPath('${efsMountPath}');
+        process.env.NODE_ENV = 'production';
+      `,
       raw: true,
     }),
   ],
