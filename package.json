@@ -11,8 +11,8 @@
   "dependencies": {
     "app-module-path": "2.2.0",
     "gatsby-alias-imports": "1.0.4",
-    "gatsby-plugin-manifest": "2.4.21",
-    "gatsby-plugin-offline": "3.2.21",
+    "gatsby-plugin-manifest": "2.4.30",
+    "gatsby-plugin-offline": "3.2.27",
     "gatsby-plugin-preact": "4.0.9",
     "gatsby-plugin-react-helmet": "3.3.10",
     "gatsby-plugin-sass": "2.3.12",
@@ -29,12 +29,12 @@
     "tslib": "2.0.3"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.64",
+    "@types/aws-lambda": "8.10.64",
     "aws-sdk": "2.777.0",
     "copy-pkg-json-webpack-plugin": "0.0.39",
-    "gatsby": "2.24.85",
+    "gatsby": "2.24.65",
     "prettier": "2.1.2",
-    "ts-loader": "^8.0.7",
+    "ts-loader": "8.0.7",
     "typescript": "4.0.3",
     "webpack": "4.44.2",
     "webpack-cli": "4.1.0",
