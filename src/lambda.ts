@@ -4,6 +4,7 @@ import mock from 'mock-require';
 import fs from 'fs';
 import { tmpdir } from 'os';
 import { runtimeRequire } from '@/utility/runtimeRequire.utility';
+import { deployFiles } from '@/utility/deployFiles.utility';
 
 /* -----------------------------------
  *
@@ -28,6 +29,7 @@ function invokeGatsby(context: Context) {
     browserslist: ['>0.25%', 'not dead'],
     sitePackageJson: runtimeRequire('./package.json'),
   })
+    .then(deployFiles)
     .then(context.succeed)
     .catch(context.fail);
 }
